@@ -1,0 +1,17 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
+###[released]
+
+## [1.0.0] - 2019-10-23
+### Added
+-Operations of addition, subtraction, multiplication, division.
+## [1.1.0] - 2019-12-20
+### Added
+-Exponentiation and square root operations.
+-Repair of minor errors.
+## [2.0.0] -2020-01-10
+-The program now works on the web.
+-Improving the order of operations.
+-Fixing errors in displaying results.
+-Graphic interface has been added.
