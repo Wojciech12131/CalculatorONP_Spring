@@ -13,6 +13,20 @@ public class ONP {
         dzial+="=";
         ArrayList<String> wyjscie = new ArrayList<>();
         Stack<Character> stos = new Stack<>();
+        for (int i = 0; dzial.charAt(i) != '='; i++)
+        {
+            if(dzial.charAt(i)=='-')
+            {
+                if(dzial.charAt(i-1)=='(')
+                {
+                   dzial=dzial.substring(0,i)+"0"+dzial.substring(i, dzial.length());
+                }
+            }
+        
+        }
+        
+        
+        
         for (int i = 0; dzial.charAt(i) != '='; i++) 
         {
             if(!Character.isWhitespace(dzial.charAt(i)))
