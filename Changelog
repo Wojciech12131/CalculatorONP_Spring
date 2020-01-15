@@ -17,3 +17,6 @@ All notable changes to this project will be documented in this file.
 -Graphic interface has been added.
 ## [2.0.1] -2020-01-15
 -Allows you to enter an equation with whitespace
+## [2.1.1] -2020-01-15
+### Added
+-Negative number support
