@@ -59,8 +59,12 @@ public class Calculator implements ICalculator{
                         stos.add((int)klasa.potega(num1, num2));
                     break;
                     case 's':
-                        stos.add((int)klasa.sqrt(stos.pop()));
-                    break; 
+                    {
+                        num1=stos.pop();
+                        if(num1<0)return "nie mozna pierwiastkowac liczb ujemnych";
+                        stos.add((int)klasa.sqrt(num1));
+                    break;
+                    }
                 }
             }
         }
