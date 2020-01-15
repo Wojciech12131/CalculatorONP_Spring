@@ -7,9 +7,10 @@ package com.Calc.Calculator;
 
 import java.util.ArrayList;
 import java.util.Stack;
+import com.Calc.ICalc.IONP;
 
-public class ONP {
-    public static  ArrayList<String> toONP(String dzial) {
+public class ONP implements IONP {
+    public  ArrayList<String> toONP(String dzial) {
         dzial+="=";
         ArrayList<String> wyjscie = new ArrayList<>();
         Stack<Character> stos = new Stack<>();

@@ -2,6 +2,7 @@
 package com.Calc.Calculator;
 
 import com.Calc.ICalc.ICalculator;
+import com.Calc.ICalc.IONP;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Stack;
@@ -16,7 +17,7 @@ public class Calculator implements ICalculator{
     public Calculator(String leftOperand)
     {
     this.Equation = leftOperand;
-    ONP ONP = new ONP();
+    ONP ONP1 = new ONP();
     }
     private String Calc(ArrayList<String> onp)
     {
@@ -61,7 +62,7 @@ public class Calculator implements ICalculator{
                     case 's':
                     {
                         num1=stos.pop();
-                        if(num1<0)return "nie mozna pierwiastkowac liczb ujemnych";
+                        if(num1<0)return "nie można pierwiastkować liczb ujemnych";
                         stos.add((int)klasa.sqrt(num1));
                     break;
                     }
@@ -73,6 +74,7 @@ public class Calculator implements ICalculator{
     } 
     public String GetResult()
    {    
-        return Calc(ONP.toONP(Equation));
+        IONP ONP1 = new ONP();
+        return Calc(ONP1.toONP(Equation));
    } 
 }
