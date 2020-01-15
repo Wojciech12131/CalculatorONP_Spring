@@ -12,9 +12,5 @@ import java.util.ArrayList;
 
 public interface ICalculator       
 {
-    public boolean cyfra(char c);
-    public ArrayList<String> doONP(String dzial);
-    public  String zONP(ArrayList<String> onp);
-    public  String oblicz();
-    public  int priorytet(char c);
+    public  String GetResult();
 }

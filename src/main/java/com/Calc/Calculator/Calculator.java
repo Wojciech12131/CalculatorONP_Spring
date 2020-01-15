@@ -11,77 +11,20 @@ import java.lang.reflect.Method;
 
 public class Calculator implements ICalculator{
     private  loaderClass klasa = loaderClass.getInstance();
-    String zapis;
-    String result;
+    private String Equation;
+    private String result;
     public Calculator(String leftOperand)
     {
-    this.zapis = leftOperand;}
-    public void loading()
-    {}
-    public  boolean cyfra(char c) {
-        return c >= 48 && c <= 57;
+    this.Equation = leftOperand;
+    ONP ONP = new ONP();
     }
-    public  ArrayList<String> doONP(String dzial) {
-        dzial+="=";
-        ArrayList<String> wyjscie = new ArrayList<>();
-        Stack<Character> stos = new Stack<>();
-        for (int i = 0; dzial.charAt(i) != '='; i++) 
-        {
-            if (cyfra(dzial.charAt(i))) 
-            {
-                int poczatek = i;
-                //System.out.println("Poczatek:"+poczatek);
-                while (cyfra(dzial.charAt(i))) 
-                {
-                    i++;
-                }
-                //System.out.println(dzial.substring(poczatek,i));
-                wyjscie.add(dzial.substring(poczatek, i));
-                i--;
-            } 
-            else 
-            {
-                if(dzial.charAt(i)=='(')
-                {
-                        stos.add('(');
-                }
-                else if(dzial.charAt(i)==')')
-                {
-                    while(stos.peek()!='(')
-                    {
-                        wyjscie.add(String.valueOf(stos.pop()));
-                    }
-                    stos.pop();
-                }
-                else
-                {
-                    if(stos.empty()||priorytet(dzial.charAt(i))>priorytet(stos.peek()))
-                    {
-                        stos.add(dzial.charAt(i));
-                    }
-                    else if(dzial.charAt(i)=='q'||dzial.charAt(i)=='r'||dzial.charAt(i)=='t')
-                    {
-                    }
-                    else
-                    {
-                        wyjscie.add(String.valueOf(stos.pop()));
-                        stos.add(dzial.charAt(i));
-                    }
-                }
-            }
-        }
-        while (stos.empty() == false) {
-            wyjscie.add(String.valueOf(stos.pop()));
-        }
-        return wyjscie;
-    }
-    public String zONP(ArrayList<String> onp)
+    private String Calc(ArrayList<String> onp)
     {
         Integer num1,num2;
         Stack<Integer> stos=new Stack<>();
         for(int i=0;i<onp.size();i++)
         {
-            if(cyfra((onp.get(i)).charAt(0)))
+            if(Character.isDigit((onp.get(i)).charAt(0)))
             {
                 stos.add(Integer.valueOf(onp.get(i)));
             }
@@ -124,23 +67,8 @@ public class Calculator implements ICalculator{
         result=stos.toString();
         return result.substring(1, result.length()-1);
     } 
-    public String oblicz()
+    public String GetResult()
    {    
-        return zONP(doONP(zapis));
+        return Calc(ONP.toONP(Equation));
    } 
-
-    public  int priorytet(char c) {
-        switch (c) {
-            case '+': ;
-            case '-':
-                return 1;
-            case '*': ;
-            case '/':
-                return 2;
-            case '^': ;
-            case 's':
-                return 3;
-        }
-        return 0;
-    }
 }

@@ -1,7 +1,7 @@
 
 package com.Calc.controller;
 
-import com.Calc.Calculator.Calculator;
+import com.Calc.Facade.FCalculator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,9 +25,9 @@ public class HomeController {
 			leftNumber = leftOperand;
                         
 
-		Calculator calculator = new Calculator(leftOperand);
+		FCalculator calculator = new FCalculator(leftOperand);
 
-		String result = calculator.oblicz();
+		String result = calculator.GetResult();
 
 		model.addAttribute("leftOperand", leftNumber);
 		model.addAttribute("result", result);
